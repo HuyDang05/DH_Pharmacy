@@ -99,11 +99,15 @@ if (formChangeMulti) {
 
         if (inputsChecked.length > 0) {
             let ids = [];
-
+            const inputIds = formChangeMulti.querySelector("input[name='ids']");
+ 
             inputsChecked.forEach(input => {
                 const id = input.value;
+                ids.push(id);
             });
 
+            inputIds.value = ids.join(", ")
+            formChangeMulti.submit();
 
         } else {
             alert("Vui long chon 1 ban ghi");
