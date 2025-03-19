@@ -85,3 +85,18 @@
     cursor: pointer;
 }
 /* End Show Alert */
+
+/* Image Preview */
+.image-preview {
+    width: 150px;
+    height: auto;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.image-preview[src=""] {
+    display: none;
+}
+/* End Image Preview */
