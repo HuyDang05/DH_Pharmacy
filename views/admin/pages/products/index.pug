@@ -7,6 +7,7 @@ include ../../mixins/alert.pug
 
 block main
   +alert-success(5000)
+  +alert-error(5000)
 
   h1 Danh sách sản phẩm
 
@@ -92,7 +93,10 @@ block main
                     class="badge badge-danger"
                   )  Dừng hoạt động
               td 
-                button(class="btn btn-warning btn-sm") Sửa
+                a(
+                  href=`${prefixAdmin}/products/edit/${item.id}`
+                  class="btn btn-warning btn-sm"
+                  ) Sửa
                 button(
                   class="btn btn-danger btn-sm ml-1"
                   button-delete
