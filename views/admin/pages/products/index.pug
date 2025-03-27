@@ -92,7 +92,11 @@ block main
                     button-change-status 
                     class="badge badge-danger"
                   )  Dừng hoạt động
-              td 
+              td
+                a(
+                  href=`${prefixAdmin}/products/detail/${item.id}`
+                  class="btn btn-secondary btn-sm"
+                  ) Chi tiết 
                 a(
                   href=`${prefixAdmin}/products/edit/${item.id}`
                   class="btn btn-warning btn-sm"
