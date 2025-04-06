@@ -1,0 +1,24 @@
+extends ../../layouts/default.pug
+
+include ../../mixins/alert.pug
+
+
+block main
+  +alert-success(5000)
+  +alert-error(5000)
+
+  h1 Danh mục sản phẩm
+
+
+  .card.mb-3 
+    .card-header Danh sách sản phẩm
+    .card-body
+      .row 
+        .col-8
+        .col-4 
+          a(
+            href=`${prefixAdmin}/products/create`
+            class="btn btn-outline-success"
+          ) + Thêm mới 
+          
+      
