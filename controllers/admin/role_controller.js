@@ -68,3 +68,18 @@ module.exports.editPatch = async (req, res) => {
   }
   res.redirect("back");
 };
+
+// [GET] /admin/roles/permissions
+module.exports.permissions = async (req, res) => {
+  let find = {
+    deleted: false
+  };
+
+  const records = await Role.find(find);
+
+  res.render("admin/pages/roles/permissions", {
+    pageTitle: "Phân quyền",
+    records: records
+  });
+ 
+};

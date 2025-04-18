@@ -1,0 +1,49 @@
+extends ../../layouts/default.pug
+
+block main 
+  h1(class="mb-4") Phân quyền 
+
+  if(records)
+    div(class="text-right")
+      button(
+        type="submit"
+        class="btn btn-primary mb-3"
+        button-submit
+      ) Cập nhật
+
+    table(
+      class="table table-hover table-sm"
+    )
+      thead 
+        tr 
+          th Tính năng 
+          each item in records 
+            th(class="text-center") #{item.title}
+      tbody 
+        tr 
+          td(colspan="4")
+            b Danh mục sản phẩm 
+        tr(data-name="products-category_view")
+          td Xem 
+          td(class="text-center")
+            input(type="checkbox")
+          td(class="text-center")
+            input(type="checkbox")
+        tr(data-name="products-category_create")
+          td Thêm mới 
+          td(class="text-center")
+            input(type="checkbox")
+          td(class="text-center")
+            input(type="checkbox")
+        tr(data-name="products-category_edit")
+          td Chỉnh sửa 
+          td(class="text-center")
+            input(type="checkbox")
+          td(class="text-center")
+            input(type="checkbox")
+        tr(data-name="products-category_delete")
+          td Xóa 
+          td(class="text-center")
+            input(type="checkbox")
+          td(class="text-center")
+            input(type="checkbox")
