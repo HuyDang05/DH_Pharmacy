@@ -13,37 +13,41 @@ block main
 
     table(
       class="table table-hover table-sm"
+      table-permissions
     )
       thead 
         tr 
           th Tính năng 
           each item in records 
             th(class="text-center") #{item.title}
-      tbody 
+      tbody
+        tr(data-name="id")
+          td 
+          each item in records 
+            td(class="text-center")
+              input(type="text" value=item.id) 
         tr 
           td(colspan="4")
             b Danh mục sản phẩm 
         tr(data-name="products-category_view")
           td Xem 
-          td(class="text-center")
-            input(type="checkbox")
-          td(class="text-center")
-            input(type="checkbox")
+          each item in records
+            td(class="text-center")
+              input(type="checkbox")
         tr(data-name="products-category_create")
           td Thêm mới 
-          td(class="text-center")
-            input(type="checkbox")
-          td(class="text-center")
-            input(type="checkbox")
+          each item in records
+            td(class="text-center")
+              input(type="checkbox")
         tr(data-name="products-category_edit")
           td Chỉnh sửa 
-          td(class="text-center")
-            input(type="checkbox")
-          td(class="text-center")
-            input(type="checkbox")
+          each item in records
+            td(class="text-center")
+              input(type="checkbox")
         tr(data-name="products-category_delete")
           td Xóa 
-          td(class="text-center")
-            input(type="checkbox")
-          td(class="text-center")
-            input(type="checkbox")
+          each item in records
+            td(class="text-center")
+              input(type="checkbox")
+
+  script(src="/admin/js/roles.js") 
