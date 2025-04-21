@@ -1,3 +1,4 @@
+
 // Permissions
 const tablePermissions = document.querySelector("[table-permissions");
 if (tablePermissions) {
@@ -24,13 +25,40 @@ if (tablePermissions) {
                 inputs.forEach((input, index) => {
                     const checked = input.checked;
                     if (checked) {
-                        permissions[index].permissions.push(name);
+                      permissions[index].permissions.push(name);
                     }
                 });
             }
         });
         console.log(permissions);
+
+        if(permissions.length > 0) {
+            const formChangePermissions = document.querySelector("#form-change-permissions");
+            const inputPermissions = formChangePermissions.querySelector("input[name='permissions']");
+            inputPermissions.value = JSON.stringify(permissions);
+            formChangePermissions.submit();
+            
+        }
     });
 }
 
 // End Permission
+
+// Permissions Data Default
+const dataRecords = document.querySelector("[data-records]");
+if (dataRecords) {
+  const records = JSON.parse(dataRecords.getAttribute("data-records"));
+
+  const tablePermissions = document.querySelector("[table-permissions]");
+  records.forEach((record, index)=> {
+    const permissions = record.permissions;
+
+    permissions.forEach(permission => {
+      const row = tablePermissions.querySelector(`[data-name="${permission}"]`);
+      const input = row.querySelectorAll("input")[index];
+
+      input.checked = true;
+      })
+    })
+}
+// End Permissions Data Default
