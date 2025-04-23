@@ -74,13 +74,13 @@ module.exports.permissions = async (req, res) => {
   let find = {
     deleted: false
   };
-
   const records = await Role.find(find);
 
   res.render("admin/pages/roles/permissions", {
     pageTitle: "Phân quyền",
     records: records
   });
+
  
 };
 
@@ -92,7 +92,7 @@ module.exports.permissionsPatch = async (req, res) => {
     for (const item of permissions) {
       await Role.updateOne({_id: item.id}, {permissions: item.permissions});
     }
-
+      
     req.flash("success", "Cập nhật phân quyền thành công");
 
     res.redirect("back");
@@ -104,3 +104,4 @@ module.exports.permissionsPatch = async (req, res) => {
   }
  
 };
+
