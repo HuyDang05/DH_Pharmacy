@@ -42,10 +42,10 @@ block main
     div(class="form-group")
       label(for="title") Số điện thoại *
       input(
-        type="password"
+        type="text"
         class="form-control"
-        id="password"
-        name="password"
+        id="phone"
+        name="phone"
         required
       )
     div(
@@ -70,8 +70,8 @@ block main
       label(for="role_id") Phân quyền 
       select(name="role_id" id="role_id" class="form-control")
         option(disabled) -- Chọn --
-        option(value="") Quản trị viên
-        option(value="") Quản trị nội dung
+        each item in roles
+          option(value=item.id) #{item.title}
     div(class="form-group form-check form-check-inline")
       input(
         type="radio"

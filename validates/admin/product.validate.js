@@ -5,7 +5,7 @@ module.exports.createPost = (req, res, next) => {
         return;
     }
 
-    if (req.body.title.lenght < 8) {
+    if (req.body.title.length < 8) {
         req.flash("error", "Vui lòng nhập tiêu đề ít nhất 8 kí tự!");
         res.redirect("back");
         return;
