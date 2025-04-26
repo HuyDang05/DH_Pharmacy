@@ -69,7 +69,7 @@ block main
     div(class="form-group")
       label(for="role_id") Phân quyền 
       select(name="role_id" id="role_id" class="form-control")
-        option(disabled) -- Chọn --
+        option(disabled selected) -- Chọn --
         each item in roles
           option(value=item.id) #{item.title}
     div(class="form-group form-check form-check-inline")
@@ -96,5 +96,12 @@ block main
         type="submit"
         class="btn btn-primary"
       ) Tạo mới
+
+    - const message = "<b>Xin chào!</b>"
+      p #{message}
+     
+      p !{message}
+
+
 
   script(src="/admin/js/product.js") 
