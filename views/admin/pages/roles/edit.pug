@@ -1,7 +1,8 @@
 extends ../../layouts/default.pug
 include ../../mixins/alert.pug
 
-block main 
+block main
+  if(role.permissions.includes("roles_edit"))
   h1(class="mb-4") Chỉnh sửa nhóm quyền 
 
   +alert-success(5000)
