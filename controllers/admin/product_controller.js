@@ -102,7 +102,10 @@ module.exports.changeMulti = async (req, res) => {
         {_id: { $in: ids}},
         {
           deleted: true,
-          deletedAt: new Date()
+          deletedBy: {
+            account_id: res.locals.user.id,
+            deletedAt: new Date()
+          }
         }
       );
       req.flash("success", `Đã xóa thành công ${ids.length} sản phẩm`);
@@ -130,16 +133,22 @@ module.exports.changeMulti = async (req, res) => {
    
 }
 
-// [GET] /admin/products/delete/:id
+// [DELETE] /admin/products/delete/:id
 module.exports.deleteItem = async (req, res) => {
     
   const id = req.params.id;
 
   // await Product.deleteOne({_id: id});
-  await Product.updateOne({_id: id}, {
+  await Product.updateOne(
+    {_id: id}, 
+    {
     deleted: true,
-    deletedAt: new Date()
-  });
+    deletedBy: {
+      account_id: res.locals.user.id,
+      deletedAt: new Date()
+      }   
+    }
+);
   req.flash("success", `Đã xóa thành công sản phẩm`);
   res.redirect("back");
 }

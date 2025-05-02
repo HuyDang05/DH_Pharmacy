@@ -5,6 +5,8 @@ include ../../mixins/pagination.pug
 include ../../mixins/form-change-multi.pug
 include ../../mixins/alert.pug
 include ../../mixins/sort.pug
+include ../../mixins/moment.pug
+
 
 
 block main
@@ -108,7 +110,8 @@ block main
                       )  Dừng hoạt động
                 td 
                   p #{item.accountFullName}
-                  p #{item.createdBy.createAt}
+                  p 
+                    +formatDateTime(item.createdBy.createAt)
                 td
                   a(
                     href=`${prefixAdmin}/products/detail/${item.id}`
