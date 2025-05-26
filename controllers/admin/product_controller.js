@@ -54,12 +54,23 @@ module.exports.index = async (req, res) => {
   .skip(objectPagination.skip);
 
   for (const product of products) {
+    // Lấy ra thông tin người tạo
     const user = await Account.findOne({
       _id: product.createdBy.account_id
     });
 
     if(user) {
       product.accountFullName = user.fullName;
+    }
+
+    // Lấy ra thông tin người cập nhật gần nhất
+    const updatedBy = product.updatedBy.slice(-1)[0];
+    if (updatedBy) {
+      const userUpdated = await Account.findOne({
+        _id: updatedBy.account_id
+      });
+
+      updatedBy.accountFullName = userUpdated.fullName;
     }
   }
   
