@@ -3,5 +3,5 @@
 </h1>
 <div align="center">
     <img src="https://skillicons.dev/icons?i=bootstrap,html,css,vscode,github,postman,git,vercel" />
-    <img src="https://skillicons.dev/icons?i=nodejs,javascript,express,mongodb,pug,cloudinary,docker" /><br>
+    <img src="https://skillicons.dev/icons?i=nodejs,javascript,express,mongodb,pug,docker" /><br>
 </div>
