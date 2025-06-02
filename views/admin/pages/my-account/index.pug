@@ -3,10 +3,10 @@ extends ../../layouts/default.pug
 block main 
   h1(class="mb-4") Thông tin cá nhân
 
-  if(user.avatar)
-    img(scr=user.avatar width="150px" class="mb-3")
+  if (user.avatar)
+    img(src=user.avatar width="150px" class="mb-3")
   else 
-    img(scr="/admin/images/avatar.png" width="150px" class="mb-3")
+    img(src="/admin/images/avatar.png" width="150px" class="mb-3")
   
   if (user.fullName)
     p Họ tên : <b>#{user.fullName}</b>
