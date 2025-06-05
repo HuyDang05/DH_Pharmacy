@@ -10,6 +10,6 @@ mixin product-item(item)
       .inner-content 
         h3.inner-title 
           a(href=`/products/detail/${item.slug}`) #{item.title}
-        .inner-price-new #{item.priceNew}$
-        .inner-price-old #{item.price}$
+        .inner-price-new #{item.priceNew}.000đ
+        .inner-price-old #{item.price}.000đ
         .inner-discount -#{item.discountPercentage}%
