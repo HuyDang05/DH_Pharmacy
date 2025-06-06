@@ -112,7 +112,7 @@ block main
                 td 
                   p #{item.accountFullName}
                   p 
-                    +formatDateTime(item.createdBy.createAt)
+                    +formatDateTime(item.createdBy.createdAt)
                 td
                   - const updatedBy = item.updatedBy.slice(-1)[0];
                   if (updatedBy)
