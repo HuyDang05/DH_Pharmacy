@@ -14,3 +14,14 @@ if (showAlert) {
     });
 }
 // End show Alert
+
+// Button go back
+const buttonsGoBack = document.querySelectorAll("[button-go-back]");
+if (buttonsGoBack.length > 0) {
+    buttonsGoBack.forEach(button => {
+        button.addEventListener("click", () => {
+            history.back();
+        })
+    })
+}
+// End button go back
