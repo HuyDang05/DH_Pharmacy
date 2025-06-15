@@ -1,4 +1,5 @@
 const User = require("../../models/user.model");
+const Cart = require("../../models/cart.model");
 const ForgotPassword = require("../../models/forgot-password.model");  
 const generateHelper = require("../../helpers/generate");
 const sendMailHelper = require("../../helpers/sendMail");
@@ -75,6 +76,12 @@ module.exports.loginPost = async (req, res) => {
 
   res.cookie("tokenUser", user.tokenUser);
 
+  await Cart.updateOne({
+    _id: req.cookies.cartId
+  }, {
+    user_id: user.id
+  })
+
   res.redirect("/");
 
 } 
@@ -121,9 +128,10 @@ module.exports.forgotPasswordPost = async (req, res) => {
   //Send Mail
   const subject = `Mã OTP xác minh lấy lại mật khẩu`
   const html = `
-    Mã OTP xác minh lấy lại mật khẩu là <b>${otp}<b>. Thời gian có hiệu lực là 1 phút.
-    Lưu ý : Không để lộ hay cho bất kỳ người nào khác thông tin về mã OTP 
-  `
+    Mã OTP xác minh lấy lại mật khẩu là <b>${otp}</b>.<br> 
+    Thời gian có hiệu lực là 1 phút.<br>
+    Lưu ý : Không để lộ hay cho bất kỳ người nào khác thông tin về mã OTP.
+  `;
 
   sendMailHelper.sendMail(email, subject, html);
 
@@ -190,6 +198,14 @@ module.exports.resetPasswordPost = async (req, res) => {
   res.redirect("/")
 
 
+} 
+
+// [GET] /user/info
+module.exports.info = async (req, res) => {
+
+  res.render("client/pages/user/info", {
+    pageTitle : "Thông tin tài khoản",
+  });
 } 
 
 
