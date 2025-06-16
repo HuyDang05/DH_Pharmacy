@@ -1,21 +1,16 @@
 const mongoose = require("mongoose");
 
-const roleSchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    permissions: {
-      type: Array,
-      default: []
-    },
-    deleted: {
-        type: Boolean,
-        default: false
-    },
-    deletedAt: Date
+const settingGeneralSchema = new mongoose.Schema({
+    websiteName: String,
+    logo: String,
+    phone: String,
+    email: String,
+    address: String,
+    copyright: String    
 }, {
     timestamps: true
 });
 
-const Role = mongoose.model("Role", roleSchema, "roles");
+const settingGeneral = mongoose.model("settingGeneral", settingGeneralSchema, "settings-general");
 
-module.exports = Role;
+module.exports = settingGeneral;
