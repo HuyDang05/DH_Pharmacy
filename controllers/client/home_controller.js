@@ -15,12 +15,15 @@ module.exports.index = async (req, res) => {
   const productsNew = await Product.find({
     deleted: false,
     status: "active"
-  }).sort({position: "desc"}).limit(6)
+  }).sort({position: "desc"}).limit(6);
+
+  const currentYear = new Date().getFullYear();
 
   const newProductsNew = productsHelper.priceNewProducts(productsNew);
   res.render("client/pages/home/index", {
       pageTitle : "Trang chủ",
       productsFeatured : newProductsFeatured,
-      productsNew: newProductsNew
+      productsNew: newProductsNew,
+      currentYear: currentYear
   });
 }

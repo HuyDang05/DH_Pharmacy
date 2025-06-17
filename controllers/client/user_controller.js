@@ -88,8 +88,8 @@ module.exports.loginPost = async (req, res) => {
 
 // [GET] /user/logout
 module.exports.logout = async (req, res) => {
-  res.clearCookie("tokenUser")
-  res.redirect("/")
+  res.clearCookie("tokenUser");
+  res.redirect("/");
 } 
 
 // [GET] /user/password/forgot
@@ -194,8 +194,8 @@ module.exports.resetPasswordPost = async (req, res) => {
     password: md5(password)
   })
 
-  req.flash("success", "Đổi mật khẩu thành công!")
-  res.redirect("/")
+  req.flash("success", "Đổi mật khẩu thành công!");
+  res.redirect("/");
 
 
 } 

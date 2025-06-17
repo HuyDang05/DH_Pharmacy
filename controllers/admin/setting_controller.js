@@ -1,10 +1,9 @@
-
-const settingGeneral = require("../../models/settings-general.model")
+const SettingGeneral = require("../../models/settings-general.model");
 
 // [GET] /admin/settings/general
 module.exports.general = async (req, res) => {
-  const settingGeneral = await settingGeneral.findOne({});
-  res.render("admin/pages/setting/general", {
+  const settingGeneral = await SettingGeneral.findOne({});
+  res.render("admin/pages/settings/general", {
       pageTitle : "Cài đặt chung",
       settingGeneral: settingGeneral
   });
@@ -12,12 +11,12 @@ module.exports.general = async (req, res) => {
 
 // [PATCH] /admin/settings/general
 module.exports.generalPatch = async (req, res) => {
-  const settingGeneral = await settingGeneral.findOne({});
+  const settingGeneral = await SettingGeneral.findOne({});
 
   if (settingGeneral) {
-    await settingGeneral.updateOne({_id: settingGeneral.id}, req.body)
+    await SettingGeneral.updateOne({_id: settingGeneral.id}, req.body)
   } else {
-    const record = new settingGeneral(req.body);
+    const record = new SettingGeneral(req.body);
     await record.save();
   }
   

@@ -1,5 +1,5 @@
 extends ../../layouts/default.pug
-include ../../mixins/alert/pug
+include ../../mixins/alert.pug
 
 block main 
   h1 Cài đặt chung
@@ -9,7 +9,7 @@ block main
 
 
   form(
-    action=`${prefixAdmin}/my-account/edit?_method=PATCH`
+    action=`${prefixAdmin}/settings/general?_method=PATCH`
     method="POST"
     enctype="multipart/form-data"
   )

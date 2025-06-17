@@ -11,6 +11,6 @@ const settingGeneralSchema = new mongoose.Schema({
     timestamps: true
 });
 
-const settingGeneral = mongoose.model("settingGeneral", settingGeneralSchema, "settings-general");
+const SettingGeneral = mongoose.model("SettingGeneral", settingGeneralSchema, "settings-general");
 
-module.exports = settingGeneral;
+module.exports = SettingGeneral;
