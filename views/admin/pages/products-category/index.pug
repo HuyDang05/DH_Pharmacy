@@ -1,7 +1,12 @@
 extends ../../layouts/default.pug
-
 include ../../mixins/alert.pug
 include ../../mixins/table-tree.pug
+include ../../mixins/filter-status.pug
+include ../../mixins/search.pug
+include ../../mixins/form-change-multi.pug
+include ../../mixins/category-sort.pug
+include ../../mixins/moment.pug
+
 
 
 
@@ -11,6 +16,22 @@ block main
     +alert-error(5000)
 
     h1 Danh mục sản phẩm
+
+    .card.mb-3 
+      .card-header Bộ lọc và tìm kiếm 
+      .card-body
+        .row 
+          .col-6 
+            +filter-status(filterStatus) 
+          .col-6 
+            +search (keyword)
+
+    .card.mb-3 
+      .card-header Sắp xếp 
+      .card-body 
+        .row 
+          .col-4 
+            +sort()
 
 
     .card.mb-3 
@@ -42,4 +63,8 @@ block main
 
           tbody 
             +table-tree(records)
+      
+
+    
+    
           

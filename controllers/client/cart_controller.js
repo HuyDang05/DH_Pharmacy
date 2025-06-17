@@ -1,8 +1,8 @@
 const Cart = require("../../models/cart.model");
 const Product = require("../../models/product.model");
-const productsHelper = require("../../helpers/products")
-// [GET] /cart
+const productsHelper = require("../../helpers/products");
 
+// [GET] /cart
 module.exports.index = async (req, res) => {
   const cartId = req.cookies.cartId;
 

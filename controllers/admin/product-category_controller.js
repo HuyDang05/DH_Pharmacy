@@ -1,6 +1,8 @@
 const ProductCategory = require("../../models/product-category.model")
-const systemConfig = require("../../config/system")
-const createTreeHelper = require("../../helpers/createTree")
+const systemConfig = require("../../config/system");
+const createTreeHelper = require("../../helpers/createTree");
+const filterStatusHelper = require("../../helpers/filterStatus");
+const searchHelper = require("../../helpers/search")
 
 
 // [GET] /admin/products-category
@@ -9,14 +11,35 @@ module.exports.index = async (req, res) => {
     deleted: false
 }
 
-const records = await ProductCategory.find(find);
+const filterStatus = filterStatusHelper(req.query);
+
+//search
+const objectSearch = searchHelper(req.query)
+
+  if(objectSearch.regex) {
+      find.title = objectSearch.regex;
+  }
+
+  //sort
+  let sort = {};
+  
+  if (req.query.sortKey && req.query.sortValue) {
+    sort[req.query.sortKey] = req.query.sortValue;
+  } else {
+    sort.position = "desc";
+  }
+  // End Sort
+
+const records = await ProductCategory.find(find)
+  .sort(sort)
 
 const newRecords = createTreeHelper.tree(records);
 
     res.render("admin/pages/products-category/index", {
       pageTitle : "Danh sách sản phẩm",
-      records: newRecords
-
+      records: newRecords,
+      filterStatus: filterStatus,
+      keyword: objectSearch.keyword,
   });
 }
 

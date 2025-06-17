@@ -6,7 +6,10 @@ header.header
       .col-3 
         .inner-logo 
           a(href="/")
-            img(src=settingGeneral.logo, alt="Logo")
+            if(settingGeneral)
+              img(src=settingGeneral.logo, alt="Logo")
+            else 
+              img(src="/images/imgNitro.jpg", alt="Logo")
 
       .col-5 
         form(
