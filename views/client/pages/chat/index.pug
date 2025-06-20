@@ -15,24 +15,30 @@ block main
           //-   .inner-avatar EY
           //-   .inner-name Em yeu
           .inner-body 
-            .inner-incoming 
-              .inner-name Em yeu 
-              .inner-content 
-                | nha khong co ai 
-            .inner-outgoing 
-              .inner-content 
-                | The a ok 
-            .inner-incoming 
-              .inner-name Em yeu 
-              .inner-content 
-                | nhanh nha 
-            .inner-outgoing 
-              .inner-content 
-                | den roi 
-            .inner-incoming 
-              .inner-name Em yeu 
-              .inner-content 
-                | nha khong co ai ma 
+            each chat in chats 
+              div(class=(chat.infoUser.id == user.id ? "inner-outgoing" : "inner-incoming"))
+                if(chat.infoUser.id != user.id)
+                  .inner-name #{chat.infoUser.fullName}
+                .inner-content  
+                  | #{chat.content}
+            //- .inner-incoming 
+            //-   .inner-name Em yeu 
+            //-   .inner-content 
+            //-     | nha khong co ai 
+            //- .inner-outgoing 
+            //-   .inner-content 
+            //-     | The a ok 
+            //- .inner-incoming 
+            //-   .inner-name Em yeu 
+            //-   .inner-content 
+            //-     | nhanh nha 
+            //- .inner-outgoing 
+            //-   .inner-content 
+            //-     | den roi 
+            //- .inner-incoming 
+            //-   .inner-name Em yeu 
+            //-   .inner-content 
+            //-     | nha khong co ai ma 
           .inner-foot 
             form(
               class="inner-form"
