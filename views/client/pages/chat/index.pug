@@ -1,0 +1,52 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+
+
+block main 
+  .container.my-3   
+    .row 
+      .col-12 
+        +box-head("Chat")
+
+    .row 
+      .col-12 
+        .chat 
+          //- .inner-head
+          //-   .inner-avatar EY
+          //-   .inner-name Em yeu
+          .inner-body 
+            .inner-incoming 
+              .inner-name Em yeu 
+              .inner-content 
+                | nha khong co ai 
+            .inner-outgoing 
+              .inner-content 
+                | The a ok 
+            .inner-incoming 
+              .inner-name Em yeu 
+              .inner-content 
+                | nhanh nha 
+            .inner-outgoing 
+              .inner-content 
+                | den roi 
+            .inner-incoming 
+              .inner-name Em yeu 
+              .inner-content 
+                | nha khong co ai ma 
+          .inner-foot 
+            form(
+              class="inner-form"
+              action=""
+            )
+              input(
+                type="text"
+                placeholder="Nhập nội dung..."
+                name="content"
+              )
+              button  
+                i.fa-solid.fa-paper-plane
+
+
+
+
+

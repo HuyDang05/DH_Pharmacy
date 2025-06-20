@@ -21,6 +21,7 @@ module.exports.index = async (req, res) => {
   }
 
   const objectSearch = searchHelper(req.query)
+  console.log(objectSearch);
 
   if(objectSearch.regex) {
       find.title = objectSearch.regex;
@@ -52,6 +53,8 @@ module.exports.index = async (req, res) => {
   .sort(sort)
   .limit(objectPagination.limitItems)
   .skip(objectPagination.skip);
+
+  console.log(products);
 
   for (const product of products) {
     // Lấy ra thông tin người tạo
