@@ -245,73 +245,39 @@
 /* End Show Alert */
 
 /* Chat */
-/* Chat box tổng */
-.chat {
-  border: 1px solid rgb(220, 220, 220);
-  width: 400px;
-  padding: 20px;
-  border-radius: 8px;
-  margin-left: 60px;
+.chat .inner-head .inner-name {
+  display: inline-block;
+  font-weight: 600;
+  margin-left: 5px;
 }
-
-/* Nội dung tin nhắn */
 .chat .inner-body {
-  border-top: 1px solid rgb(220, 220, 220);
-  border-bottom: 1px solid rgb(220, 220, 220);
-  padding: 10px 0;
+  padding: 10px;
+  max-height: 450px;
+  overflow-y: auto;
 }
 
-/* Tin nhắn từ người nhận (Em yêu) */
-.chat .inner-incoming {
-  margin-right: 100px;
-  background-color: rgb(248, 248, 255);
-  border-radius: 8px;
-  padding: 8px;
-  margin-bottom: 8px;
+.chat .inner-body .inner-name {
+  font-weight: 600;
 }
 
-/* Tên người gửi trong tin nhắn đến */
-.chat .inner-incoming .inner-name {
-  font-size: 12px;
-  font-weight: bold;
-  margin-bottom: 3px;
-  padding-left: 5px;
-}
-
-/* Tin nhắn của chính mình */
-.chat .inner-outgoing {
-  margin-left: 150px;
-  background-color: #FF3399;
-  color: white;
-  border-radius: 8px;
-  padding: 8px 10px;
-  margin-bottom: 8px;
-}
-
-/* Phần chân nhập tin nhắn */
-.chat .inner-foot {
-  margin-top: 15px;
-}
-
-/* Avatar và tên (nếu bạn muốn thêm phần đầu chat như thầy) */
-.chat .inner-head {
+.chat .inner-body .inner-content {
+  background: #F1F1F1;
   margin-bottom: 10px;
-}
-
-.chat .inner-avatar {
-  display: inline-block;
-  background-color: #FF3399;
-  color: white;
-  border-radius: 50%;
+  max-width: 220px;
   padding: 5px 10px;
-  font-weight: bold;
-  margin-right: 10px;
+  border-radius:  15px;
+  line-height: 1.4;
 }
 
-.chat .inner-name {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
+.chat .inner-outgoing .inner-content {
+  margin-left: auto;
+  background:  #FE5DA3;
+  color: #fff;
+}
+
+.chat .inner-foot {
+  border-top: 1px solid #ddd;
+  padding: 10px;
 }
 
 .chat .inner-form {

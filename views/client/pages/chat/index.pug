@@ -10,7 +10,7 @@ block main
 
     .row 
       .col-12 
-        .chat 
+        .chat(my-id=user.id) 
           //- .inner-head
           //-   .inner-avatar EY
           //-   .inner-name Em yeu
@@ -21,24 +21,6 @@ block main
                   .inner-name #{chat.infoUser.fullName}
                 .inner-content  
                   | #{chat.content}
-            //- .inner-incoming 
-            //-   .inner-name Em yeu 
-            //-   .inner-content 
-            //-     | nha khong co ai 
-            //- .inner-outgoing 
-            //-   .inner-content 
-            //-     | The a ok 
-            //- .inner-incoming 
-            //-   .inner-name Em yeu 
-            //-   .inner-content 
-            //-     | nhanh nha 
-            //- .inner-outgoing 
-            //-   .inner-content 
-            //-     | den roi 
-            //- .inner-incoming 
-            //-   .inner-name Em yeu 
-            //-   .inner-content 
-            //-     | nha khong co ai ma 
           .inner-foot 
             form(
               class="inner-form"
