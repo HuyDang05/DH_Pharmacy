@@ -7,6 +7,9 @@ html
     
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css")
     
+    //- file-upload-with-preview
+    link(rel="stylesheet", href="https://unpkg.com/file-upload-with-preview/dist/style.css")
+    
     link(rel="stylesheet", href="/css/style.css")
   body
     include ../partials/header.pug
@@ -23,8 +26,12 @@ html
   script(src="/socket.io/socket.io.js") 
   script(src="/js/socket.js")
   script(type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js")
+  
+  
+  //- file-upload-with-preview
+  script(src="https://unpkg.com/file-upload-with-preview/dist/index.js")
+  
   script(type="module" src="/js/chat.js") 
-
 
   script(src="/js/script.js") 
 
