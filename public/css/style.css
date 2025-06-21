@@ -245,6 +245,13 @@
 /* End Show Alert */
 
 /* Chat */
+.chat {
+  border: 1px solid rgb(220, 220, 220);
+  width: auto;
+  padding: 20px;
+  border-radius: 8px;
+  margin-left: 60px;
+}
 .chat .inner-head .inner-name {
   display: inline-block;
   font-weight: 600;
