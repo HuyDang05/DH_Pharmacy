@@ -10,6 +10,7 @@ const checkoutRoutes = require("./checkout.route");
 const userRoutes = require("./user.route");
 const chatRoutes = require("./chat.route");
 const authMiddleware = require("../../middlewares/client/auth.middleware")
+const usersRoutes = require("./users.route");
 
 
 
@@ -28,6 +29,8 @@ module.exports = (app) => {
     app.use("/checkout", checkoutRoutes);
     app.use("/user", userRoutes);
     app.use("/chat", authMiddleware.requireAuth, chatRoutes);
+    app.use("/users", authMiddleware.requireAuth, usersRoutes);
+
 
 
 
