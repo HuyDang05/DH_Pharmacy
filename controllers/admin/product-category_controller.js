@@ -15,7 +15,6 @@ module.exports.index = async (req, res) => {
 
   //search
   const objectSearch = searchHelper(req.query);
-  console.log(objectSearch);
 
   if(objectSearch.regex) {
       find.title = objectSearch.regex;
@@ -35,7 +34,6 @@ module.exports.index = async (req, res) => {
 
   const records = await ProductCategory.find(find).sort(sort)
     
-  console.log(records);
   const newRecords = createTreeHelper.tree(records);
 
   console.log(newRecords);

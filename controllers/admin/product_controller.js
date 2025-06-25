@@ -54,8 +54,6 @@ module.exports.index = async (req, res) => {
   .limit(objectPagination.limitItems)
   .skip(objectPagination.skip);
 
-  console.log(products);
-
   for (const product of products) {
     // Lấy ra thông tin người tạo
     const user = await Account.findOne({
