@@ -15,15 +15,7 @@ module.exports.notFriend = async (req, res) => {
 
   const requestFriends = myUser.requestFriends;
   const acceptFriends = myUser.acceptFriends;
-
-  //  const users = await User.find({
-  //   _id: { $ne: userId },
-  //   status: "active",
-  //   deleted: false
-  // }).select("avatar fullName");
-
  
-  
   const users = await User.find({
     $and: [
       { _id: { $ne: userId } },
@@ -34,10 +26,34 @@ module.exports.notFriend = async (req, res) => {
     deleted: false
   }).select("avatar fullName");
 
-   console.log(users);
 
   res.render("client/pages/users/not-friend", {
     pageTitle : "Danh sách người dùng",
+    users: users
+  });
+} 
+
+// [GET] /user/request
+module.exports.request = async (req, res) => {
+  // Socket
+  usersSocket(res);
+  // End Socket
+  const userId = res.locals.user.id;
+
+  const myUser = await User.findOne({
+    _id: userId
+  })
+
+  const requestFriends = myUser.requestFriends;
+
+  const users = await User.find({
+    _id : { $in: requestFriends },
+    status: "active",
+    deleted: false
+  }).select("id avatar fullName");
+
+  res.render("client/pages/users/request", {
+    pageTitle : "Lời mời đã gửi",
     users: users
   });
 } 

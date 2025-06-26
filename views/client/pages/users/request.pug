@@ -11,11 +11,11 @@ block main
       .col-12 
         +box-head("Danh sách người dùng")
 
-    
+
     .row 
       each user in users  
         .col-6 
-          div(class="box-user")
+          div(class="box-user add")
             div(class="inner-avatar")
               img(
                 src=(user.avatar ? user.avatar : "/images/user.webp")
@@ -33,6 +33,6 @@ block main
                   btn-cancel-friend=user.id
                 ) Hủy
 
-  block script 
-    script(type="module" src="/js/users.js")
-  
+
+block script 
+  script(src="/js/users.js")
