@@ -70,8 +70,10 @@ socket.on("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", (data) => {
 
 // SERVER_RETURN_INFO_ACCEPT_FRIEND
 socket.on("SERVER_RETURN_INFO_ACCEPT_FRIEND", (data) => {
+  // Trang lời mời kết bạn
   const dataUsersAccept = document.querySelector("[data-users-accept]");
-  const userId = dataUsersAccept.getAttribute("data-users-accept")
+  if (dataUsersAccept) {
+    const userId = dataUsersAccept.getAttribute("data-users-accept")
   
   if (userId == data.userId) {
     // Vẽ user ra giao diện
@@ -142,7 +144,22 @@ socket.on("SERVER_RETURN_INFO_ACCEPT_FRIEND", (data) => {
     })
   // Hết Chấp nhận lời mời kết bạn
 
-  } 
+  }
+  }
+   
+  // Trang danh sách người dùng
+  const dataUsersNotFriend = document.querySelector("[data-users-not-friend]");
+  if (dataUsersNotFriend) {
+    const userId = dataUsersNotFriend.getAttribute("data-users-not-friend");
+
+    if (userId == data.userId) {
+      // Xóa A khỏi danh sách của B
+    const boxUserRemove = dataUsersNotFriend.querySelector(`[user-id="${data.infoUserA._id}"]`);
+    if (boxUserRemove) {
+      dataUsersNotFriend.removeChild(boxUserRemove);
+    }
+    }
+  }
 })
 // End SERVER_RETURN_INFO_ACCEPT_FRIEND
 
