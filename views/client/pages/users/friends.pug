@@ -25,7 +25,7 @@ block main
               div(class="inner-name") #{user.fullName} 
               div(class="inner-buttons")
                 a(
-                  href="a"
+                  href=`/chat/${user.roomChatId}`
                   class="btn btn-sm btn-primary mr-1"
                 ) Nhắn tin               
             div(
