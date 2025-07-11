@@ -188,7 +188,7 @@ module.exports = async (res) => {
         })
       }
       
-      // Thêm  {user_id, room_chat_id} của A vào friendList của B
+      // Thêm  {user_id, room_chat_id} của B vào friendList của A
       // Xóa id của B trong requestFriend của A
       
 
