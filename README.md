@@ -14,7 +14,6 @@ For a comprehensive list of all features, see [FEATURES.md](./FEATURES.md)
 - Cart System
 - Order Management
 - Real-time Chat System
-- Mobile Responsive Design
 
 **Admin Features:**
 - Dashboard & Analytics
@@ -22,7 +21,6 @@ For a comprehensive list of all features, see [FEATURES.md](./FEATURES.md)
 - User Management
 - System Settings
 - Order Processing
-- Security & Compliance
 
 ## Technology Stack
 
