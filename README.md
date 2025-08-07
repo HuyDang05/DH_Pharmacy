@@ -139,6 +139,6 @@ This project is licensed under the ISC License.
 ---
 
 <div align="center">
-    <img src="https://skillicons.dev/icons?i=bootstrap,html,css,vscode,github,postman,git,vercel,socketio" />
+    <img src="https://skillicons.dev/icons?i=bootstrap,html,css,vscode,github,postman,git,vercel" />
     <img src="https://skillicons.dev/icons?i=nodejs,javascript,express,mongodb,pug,docker" /><br>
 </div>
