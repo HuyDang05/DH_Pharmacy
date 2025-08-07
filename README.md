@@ -1,4 +1,4 @@
-# Product Management System
+# Pharmacy System
 
 A comprehensive e-commerce for pharmacy and management system built with Node.js, Express, MongoDB, and Socket.IO. This application provides both client-facing features and admin management capabilities.
 
