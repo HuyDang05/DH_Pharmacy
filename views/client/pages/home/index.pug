@@ -3,20 +3,24 @@ include ../../mixins/box-head.pug
 include ../../mixins/product-layout.pug
 
 block main 
-  h1 Trang chủ
+  .home
+    .bg.bg1
+    .bg.bg2
+    img.home-img.home-img1(src="/images/BG1_1.png")
+    img.home-img.home-img2(src="/images/BG2_1.webp")
+    .home-section
+      .section-products-featured.my-5 
+        .container
+          .row 
+            .col-12 
+              +box-head("Sản phẩm nổi bật")
 
-  .section-products-featured.my-5 
-    .container 
-      .row 
-        .col-12 
-          +box-head("Sản phẩm nổi bật")
+          +product-grid(productsFeatured)
+      
+      .section-products-new.my-5 
+        .container 
+          .row 
+            .col-12 
+              +box-head("Sản phẩm mới")
 
-      +product-grid(productsFeatured)
-  
-  .section-products-new.my-5 
-    .container 
-      .row 
-        .col-12 
-          +box-head("Sản phẩm mới")
-
-      +product-grid(productsNew)
+          +product-grid(productsNew)
