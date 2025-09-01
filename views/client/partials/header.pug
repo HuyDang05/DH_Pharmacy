@@ -7,9 +7,9 @@ header.header
         .inner-logo 
           a(href="/")
             if(settingGeneral)
-              img(src=settingGeneral.logo, alt="Logo")
+              img(src="/images/DHPH.png", alt="Logo")
             else 
-              img(src="/images/imgNitro.jpg", alt="Logo")
+              img(src="/images/DHPH.png", alt="Logo")
 
       .col-5 
         form(
@@ -32,28 +32,56 @@ header.header
       .col-4 
         .inner-menu 
           ul 
-            li 
-              a(href="/") Trang chủ
-            li(class="sub-menu")
-              -const pathProduct = "/products";
-              a(href=pathProduct) Sản phẩm 
-                +sub-menu(layoutProductsCategory, pathProduct) 
-            li 
+            //- li(class="sub-menu")
+            //-   -const pathProduct = "/products";
+            //-   a(href=pathProduct) Sản phẩm 
+            //-     +sub-menu(layoutProductsCategory, pathProduct) 
+            li.cart 
               a(href="/cart") Giỏ hàng (#{miniCart ? miniCart.totalQuantity : "0"}) 
             if(user)
-              //- li
-              //-   a(href="/chat") Chat
+
+              li.chat
+                a(href="/chat") Chat
+              li
+                a(href="/users/friends") Bạn bè
+              li
+                a(href="/rooms-chat") Phòng chat
               li
                 a(href="/users/friends") Bạn bè
               li
                 a(href="/rooms-chat") Phòng chat
               li
                 a(href="/user/info") #{user.fullName}
-              li
+              li.logout
                 a(href="/user/logout") Đăng xuất  
             else
-              li
+              li.login
                 a(href="/user/login") Đăng nhập  
-              li
+              li.register
                 a(href="/user/register") Đăng ký  
+    .nav-sub-products
+      ul
+        each category in layoutProductsCategory
+          li.sub-menu
+            a(href=`${pathProduct}/${category.slug}`) #{category.title}
+
+            if category.children && category.children.length > 0
+              .mega-menu
+                // Sidebar trái
+                ul.mega-sidebar
+                  each sub in category.children
+                    li
+                      a(href=`${pathProduct}/${sub.slug}`) #{sub.title}
+                    .mega-content
+                      .content-block
+                        +sub-menu(category.children, pathProduct)
+
+        // Các mục bổ sung
+        li
+          a(href="/health") Bệnh & Góc sức khỏe
+        li
+          a(href="/stores") Hệ thống nhà thuốc
+
+
+
 
