@@ -39,6 +39,8 @@ module.exports.order = async (req, res) => {
   const cartId = req.cookies.cartId;
   const userInfo = req.body;
 
+  console.log("ok");
+
   const cart = await Cart.findOne({
     _id: cartId
   })
@@ -67,6 +69,19 @@ module.exports.order = async (req, res) => {
     cart_id: cartId,
     userInfo: userInfo,
     products: products
+  }
+
+  for (const product of cart.products) {
+    const productInfo = await Product.findOne({ _id: product.product_id });
+
+    if (productInfo.stock < product.quantity) {
+      return res.status(400).send("Sản phẩm đã hết hàng hoặc không đủ số lượng.");
+    }
+
+    await Product.updateOne(
+      { _id: product.product_id },
+      { $inc: { stock: -product.quantity } }
+    );
   }
 
   const order = new Order(objectOrder);

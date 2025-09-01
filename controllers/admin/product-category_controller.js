@@ -11,14 +11,15 @@ module.exports.index = async (req, res) => {
     deleted: false
 }
 
-const filterStatus = filterStatusHelper(req.query);
+  const filterStatus = filterStatusHelper(req.query);
 
-//search
-const objectSearch = searchHelper(req.query)
+  //search
+  const objectSearch = searchHelper(req.query);
 
   if(objectSearch.regex) {
       find.title = objectSearch.regex;
   }
+  //End search
 
   //sort
   let sort = {};
@@ -26,14 +27,16 @@ const objectSearch = searchHelper(req.query)
   if (req.query.sortKey && req.query.sortValue) {
     sort[req.query.sortKey] = req.query.sortValue;
   } else {
-    sort.position = "desc";
+    sort.position = "asc";
   }
+
   // End Sort
 
-const records = await ProductCategory.find(find)
-  .sort(sort)
+  const records = await ProductCategory.find(find).sort(sort)
+    
+  const newRecords = createTreeHelper.tree(records);
 
-const newRecords = createTreeHelper.tree(records);
+  console.log(newRecords);
 
     res.render("admin/pages/products-category/index", {
       pageTitle : "Danh sách sản phẩm",
