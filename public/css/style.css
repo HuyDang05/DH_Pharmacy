@@ -99,16 +99,14 @@ body {
   width: auto;
 }
 
-.header .inner-logo img {
-    max-height: 90px;
-    max-width: 100%;
-}
-
 /* Menu chung */
-.header .inner-menu > ul {
+.header .inner-menu ul {
+  display: flex;
+  gap: 10px;
   list-style: none;
+  align-items: flex-start;
   padding: 0;
-  margin: 0;
+  margin: 5px 0;
 }
 
 .header .inner-menu > ul > li a {
@@ -121,28 +119,41 @@ body {
   color: #ddd;
 }
 
-/* Các nút đặc biệt (login/register/logout/cart) */
-.header .inner-menu > ul > li.cart a {
-  background: rgba(255, 255, 255, 0.15);
+/* Button (login/register/logout/cart/chat) */
+.header .inner-menu > ul > li.cart a,
+.header .inner-menu > ul > li.chat a {
+  background: rgba(9, 6, 208, 0.455);
   padding: 6px 12px;
   border-radius: 20px;
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  width: 130px;
+  height: 36px;
+  white-space: nowrap; 
 }
 
-/* Reset chung */
+.icon-cart {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
 .header .inner-menu > ul > li.login a,
 .header .inner-menu > ul > li.register a,
 .header .inner-menu > ul > li.logout a {
   display: inline-block;
-  padding: 4px 10px;         /* box sát chữ */
-  border-radius: 12px;       /* bo tròn */
+  padding: 2px 10px;
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 600;
-  text-decoration: none;
   color: rgba(255, 255, 255, 0.832);
   position: relative;
-  top: -6px;                 /* kéo lên sát viền trên */
+  left: 10px;
+  white-space: nowrap; 
 }
 
 .header .inner-menu > ul > li.login a {
@@ -157,15 +168,21 @@ body {
   background: #d9534f;
 }
 
-.header .inner-menu > ul {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
+.header .inner-menu > ul > li.chat a {
+  background: #5c93b8;
 }
 
+.header .inner-menu > ul > li.chat {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+
 .header .inner-menu > ul > li.cart {
-  display: block;
-  margin-top: 30px;
+  display: inline-block;
   margin-left: 30px;
   position: relative;
 }
@@ -199,7 +216,6 @@ body {
 
 .nav-sub-products ul {
   display: flex;
-  gap: 20px;
   list-style: none;
   margin: 0;
   padding: 8px 40px;
@@ -209,18 +225,38 @@ body {
 
 .nav-sub-products ul li {
   position: relative;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-sub-products ul li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 1%;
+  bottom: 15%;
+  width: 1px;
+  background: #2b2b2b;
+  opacity: 0.6;
+}
+
+/* Hover item */
+.nav-sub-products ul li:hover a {
+  color:#0069d9
 }
 
 .nav-sub-products ul li a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  padding: 5px 0;
   display: block;
+  width: 100%;
+  text-align: center;
 }
 
 /* Dropdown */
-.nav-sub-products ul li ul {
+/* .nav-sub-products ul li ul {
   display: none;
   position: absolute;
   top: 100%;
@@ -232,7 +268,7 @@ body {
   margin: 0;
   min-width: 200px;
   z-index: 999;
-}
+} */
 
 .nav-sub-products ul li ul li {
   border-bottom: 1px solid #eee;
@@ -247,7 +283,7 @@ body {
   display: block;
 }
 
-.nav-sub-products ul li.sub-menu > a::after {
+/* .nav-sub-products ul li.sub-menu > a::after {
   content: "▼";
   font-size: 10px;
   margin-left: 6px;
@@ -259,14 +295,10 @@ body {
   vertical-align: middle;
   transform-origin: 50% 50%;
   transition: transform 0.3s ease;
-}
+} */
 
 .nav-sub-products ul li.sub-menu:hover > a::after {
   transform: rotate(180deg); /* Xoay ngược */
-}
-
-.nav-sub-products ul li.sub-menu {
-  position: relative;
 }
 
 .nav-sub-products ul li.sub-menu .mega-menu {
@@ -362,7 +394,7 @@ body {
     margin-bottom: 0;
     font-size: 28px;
     font-weight: 600;
-    color: green;
+    color: rgb(28, 28, 252);
 }
 
 /* End box-head */
