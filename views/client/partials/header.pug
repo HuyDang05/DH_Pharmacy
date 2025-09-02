@@ -31,57 +31,54 @@ header.header
 
       .col-4 
         .inner-menu 
-          ul 
+          ul.row-1 
             //- li(class="sub-menu")
             //-   -const pathProduct = "/products";
             //-   a(href=pathProduct) Sản phẩm 
             //-     +sub-menu(layoutProductsCategory, pathProduct) 
-            li.cart 
-              a(href="/cart") Giỏ hàng (#{miniCart ? miniCart.totalQuantity : "0"}) 
             if(user)
-
-              li.chat
-                a(href="/chat") Chat
+              //- li
+              //-   a(href="/users/friends") Bạn bè
+              //- li
+              //-   a(href="/rooms-chat") Phòng chat
               li
-                a(href="/users/friends") Bạn bè
-              li
-                a(href="/rooms-chat") Phòng chat
-              li
-                a(href="/users/friends") Bạn bè
-              li
-                a(href="/rooms-chat") Phòng chat
-              li
-                a(href="/user/info") #{user.fullName}
+                a(href="/user/info") Xin chào, #{user.fullName}!
               li.logout
                 a(href="/user/logout") Đăng xuất  
             else
               li.login
                 a(href="/user/login") Đăng nhập  
               li.register
-                a(href="/user/register") Đăng ký  
+                a(href="/user/register") Đăng ký 
+          ul.row-2
+            li.cart 
+              a(href="/cart")
+                img(src="/images/trolley.png" alt="Cart" class="icon-cart")
+                span Giỏ hàng (#{miniCart ? miniCart.totalQuantity : "0"})  
+            if(user)
+              li.chat
+                a(href="/users/friends") Trò chuyện
+              //- li
+              //-   a(href="/rooms-chat") Phòng 
     .nav-sub-products
       ul
         each category in layoutProductsCategory
           li.sub-menu
-            a(href=`${pathProduct}/${category.slug}`) #{category.title}
+            a(href=`/products/${category.slug}`) #{category.title}
 
-            if category.children && category.children.length > 0
-              .mega-menu
-                // Sidebar trái
-                ul.mega-sidebar
-                  each sub in category.children
-                    li
-                      a(href=`${pathProduct}/${sub.slug}`) #{sub.title}
-                    .mega-content
-                      .content-block
-                        +sub-menu(category.children, pathProduct)
+            //- if category.children && category.children.length > 0
+            //-   .mega-menu
+            //-     // Sidebar trái
+            //-     ul.mega-sidebar
+            //-       each sub in category.children
+            //-         li
+            //-           a(href=`${pathProduct}/${sub.slug}`) #{sub.title}
+            //-         .mega-content
+            //-           .content-block
+            //-             +sub-menu(category.children, pathProduct)
 
         // Các mục bổ sung
         li
           a(href="/health") Bệnh & Góc sức khỏe
         li
           a(href="/stores") Hệ thống nhà thuốc
-
-
-
-
