@@ -21,8 +21,7 @@ block main
               th Ảnh 
               th Tên 
               th Giá
-              th Số lượng
-              th Tổng tiền 
+              th Số lượng 
           tbody 
             if(cartDetail.products.length > 0)
               each item, index in cartDetail.products 
@@ -33,7 +32,6 @@ block main
                   td #{item.productInfo.title}                   
                   td #{item.productInfo.priceNew}.000đ
                   td #{item.quantity}                 
-                  td #{item.totalPrice}.000đ
             else 
               tr
                 td(
