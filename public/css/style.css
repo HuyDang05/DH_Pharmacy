@@ -971,3 +971,29 @@ body {
 }
 /* End box room */
 
+.section-products-new .box {
+  background-color: #0057d8;  /* màu xanh (có thể chỉnh theo mẫu) */
+  border-radius: 12px;        /* bo góc */
+  padding: 20px;              /* khoảng cách trong */
+  margin-top: 20px;
+}
+
+.section-products-new .box .product-item {
+  background: #fff;           /* để mỗi sản phẩm có nền trắng nổi lên */
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.section-products-featured .box {
+  background-color: #0057d8;  /* màu xanh (có thể chỉnh theo mẫu) */
+  border-radius: 12px;        /* bo góc */
+  padding: 20px;              /* khoảng cách trong */
+  margin-top: 20px;
+}
+
+.section-products-featured .box .product-item {
+  background: #fff;           /* để mỗi sản phẩm có nền trắng nổi lên */
+  border-radius: 12px;
+  overflow: hidden;
+}
+

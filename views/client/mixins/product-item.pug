@@ -2,7 +2,7 @@ mixin product-item(item)
   .col-4.mb-3 
     .product-item
       .inner-image
-        a(href=`/products/detail/${item.slug}`)
+         a(href=`/products/detail/${item.slug}`)
           img(src=item.thumbnail, alt=item.title)
           if item.featured == "1"
             .inner-featured HOT!!
