@@ -2,18 +2,20 @@ mixin product-item(item)
   .col-4.mb-3 
     .product-item
       .inner-image
-        img(src=item.thumbnail, alt=item.title)
-        if item.featured == "1"
-          .inner-featured HOT!!
+        a(href=`/products/detail/${item.slug}`)
+          img(src=item.thumbnail, alt=item.title)
+          if item.featured == "1"
+            .inner-featured HOT!!
       .inner-content
         h3.inner-title
           a(href=`/products/detail/${item.slug}`) #{item.title}
+        if item.discountPercentage && item.discountPercentage > 0
+          .inner-discount Khuyến mãi #{item.discountPercentage}%
         .inner-price
-          span.inner-price-new #{item.priceNew}.000đ
           if item.price && item.price > item.priceNew
             span.inner-price-old #{item.price}.000đ
-        if item.discountPercentage && item.discountPercentage > 0
-          .inner-discount -#{item.discountPercentage}%
+            |  >>
+          span.inner-price-new #{item.priceNew}.000đ        
         form(
             action=`/cart/add/${item.id}`
             method="POST"
