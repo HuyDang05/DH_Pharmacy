@@ -10,69 +10,6 @@ body {
   margin: 0;
 }
 
-.home {
-  margin: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-.bg {
-  position: absolute;
-  top: 140px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  animation: fadeBg 14s infinite ease-in-out;
-  z-index: -1;
-  
-}
-
-.bg1 {
-  background-image: 
-    linear-gradient(to bottom, rgba(255,255,255,0) 70%, rgba(240, 244, 255, 1) 100%),
-    url("../images/BG1.webp");
-}
-
-.bg2 {
-  background-image: 
-    linear-gradient(to bottom, rgba(255,255,255,0) 70%, rgba(240, 244, 255, 1) 100%),
-    url("../images/BG2.webp");
-  animation-delay: 7s;
-}
-
-.home-img {
-  position: absolute;
-  top: 190px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  max-width: 1200px;
-  display: block;
-  margin: 0 auto;
-  opacity: 0;
-  animation: fadeBg 14s infinite;
-  z-index: 0;
-}
-
-.home-img2 { animation-delay: 7s; }
-
-/* animation */
-@keyframes fadeBg {
-  0%, 45% { opacity: 1; }
-  50%, 95% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-.home-section {
-  position: relative;
-  z-index: 1;
-  padding-top: 400px;
-}
-
 /* Header */
 
 .header {
@@ -202,7 +139,7 @@ body {
   text-align: center;
 }
 
-/* Thanh menu con dưới header */
+/* Navigation bar */
 .nav-sub-products {
   background-color: rgba(255, 255, 255, 0.753);
   border-top: 1px solid #ddd;
@@ -255,125 +192,6 @@ body {
   text-align: center;
 }
 
-/* Dropdown */
-/* .nav-sub-products ul li ul {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  min-width: 200px;
-  z-index: 999;
-} */
-
-.nav-sub-products ul li ul li {
-  border-bottom: 1px solid #eee;
-}
-
-.nav-sub-products ul li ul li a {
-  padding: 10px;
-  color: #333;
-}
-
-.nav-sub-products ul li:hover ul {
-  display: block;
-}
-
-/* .nav-sub-products ul li.sub-menu > a::after {
-  content: "▼";
-  font-size: 10px;
-  margin-left: 6px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 12px;
-  height: 12px;
-  vertical-align: middle;
-  transform-origin: 50% 50%;
-  transition: transform 0.3s ease;
-} */
-
-.nav-sub-products ul li.sub-menu:hover > a::after {
-  transform: rotate(180deg); /* Xoay ngược */
-}
-
-.nav-sub-products ul li.sub-menu .mega-menu {
-  display: none;
-  position: fixed;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1000px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  z-index: 999;
-}
-
-
-.nav-sub-products ul li.sub-menu:hover .mega-menu {
-  display: block;
-}
-/* Sidebar trái */
-.mega-sidebar {
-  width: 30%;
-  background: #f8f8f8;
-  border-right: 1px solid #ddd;
-}
-
-.mega-sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.mega-sidebar ul li a {
-  display: block;
-  padding: 8px 12px;
-  color: #333;
-  text-decoration: none;
-}
-
-/* Nội dung bên phải */
-.mega-content {
-  width: 70%;
-  padding: 15px;
-}
-
-.content-block ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 10px;
-}
-
-.content-block ul li {
-  margin-bottom: 5px;
-}
-
-.content-block ul li ul {
-  margin-left: 15px; 
-  list-style: disc;
-}
-
-.content-block {
-  display: none;
-}
-
-.mega-sidebar ul li:hover {
-  background: #e6f0ff;
-}
-
-/* Liên kết hover sidebar với content-block */
-.mega-sidebar ul li:hover ~ .mega-content {
-  display: block;
-}
-
-
-
-
-
 /* End header */
 
 /* Footer */
@@ -384,6 +202,72 @@ body {
     padding: 10px;
 }
 /* End Footer */
+
+/* Homepage */
+
+.home {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.bg {
+  position: absolute;
+  top: 140px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: fadeBg 14s infinite ease-in-out;
+  z-index: -1;
+}
+
+.bg1 {
+  background-image: 
+    linear-gradient(to bottom, rgba(255,255,255,0) 70%, rgba(240, 244, 255, 1) 100%),
+    url("../images/BG1.webp");
+}
+
+.bg2 {
+  background-image: 
+    linear-gradient(to bottom, rgba(255,255,255,0) 70%, rgba(240, 244, 255, 1) 100%),
+    url("../images/BG2.webp");
+  animation-delay: 7s;
+}
+
+.home-img {
+  position: absolute;
+  top: 190px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 1200px;
+  display: block;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeBg 14s infinite;
+  z-index: 0;
+}
+
+.home-img2 { animation-delay: 7s; }
+
+/* animation */
+@keyframes fadeBg {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.home-section {
+  position: relative;
+  z-index: 1;
+  padding-top: 400px;
+}
+
+/* End Homepage */
 
 /* box-head */
 .box-head {
@@ -542,7 +426,7 @@ body {
   color: #333;
 }
 
-/* Khung chứa ảnh (chi tiết & danh sách sản phẩm) */
+/* Product details box */
 .product-detail .inner-thumb,
 .product-item .inner-image {
   display: flex;
@@ -557,14 +441,13 @@ body {
 
 
 .product-detail .inner-thumb {
-  height: 300px; /* Trang chi tiết sản phẩm */
+  height: 300px;
 }
 
 .product-item .inner-image {
-  height: 180px; /* Danh sách sản phẩm */
+  height: 180px;
 }
 
-/* Ảnh sản phẩm */
 .product-detail .inner-thumb img,
 .product-item .inner-image img {
   max-width: 100%;
@@ -572,8 +455,6 @@ body {
   object-fit: contain;
   display: block;
 }
-
-
 
 .product-detail .inner-category {
   margin-bottom: 12px;
@@ -638,7 +519,7 @@ body {
   background: #0d47a1;
 }
 
-/* End product-detail */
+/* End product detail box */
 
 /* Show Alert */
 [show-alert] {
@@ -676,6 +557,51 @@ body {
     cursor: pointer;
 }
 /* End Show Alert */
+
+/* Chat page */
+
+.user-dashboard {
+  margin-top: 20px;
+}
+
+.user-dashboard .dashboard-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #333;
+
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.user-dashboard .dashboard-card i {
+  font-size: 28px;
+  color: #3f84e5; /* xanh chủ đạo */
+  margin-bottom: 8px;
+}
+
+.user-dashboard .dashboard-card span {
+  font-weight: 500;
+}
+
+.user-dashboard .dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+  background: #f0f4ff;
+}
+
+.user-dashboard .badge {
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+/* End Chat page */
 
 /* Chat */
 .chat {

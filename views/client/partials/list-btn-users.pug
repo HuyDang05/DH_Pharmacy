@@ -1,23 +1,23 @@
-.row 
-  .col-12 
-    a(
-      class="btn btn-primary n-1"
-      href="/users/not-friend"
-    ) Danh sách người dùng
-    a(
-      class="btn btn-primary n-1"
-      href="/users/friends"
-    ) Danh sách bạn bè
-    a(
-      class="btn btn-primary n-1"
-      href="/users/request"
-    ) Lời mời đã gửi
-    a(
-      class="btn btn-primary n-1"
-      href="/users/accept"
-    ) 
-      | Lời mời kết bạn
-      span(
-        class="badge badge-light"
-        badge-users-accept=user.id
-      ) #{user.acceptFriends.length}
+.row.user-dashboard.text-center
+  .col
+    a.dashboard-card(href="/users/not-friend")
+      i.fas.fa-users
+      span Người dùng
+  .col
+    a.dashboard-card(href="/users/friends")
+      i.fas.fa-user-friends
+      span Bạn bè
+  .col
+    a.dashboard-card(href="/users/request")
+      i.fas.fa-paper-plane
+      span Lời mời đã gửi
+  .col
+    a.dashboard-card(href="/users/accept")
+      i.fas.fa-user-plus
+      span
+        | Lời mời kết bạn 
+        span.badge.badge-danger #{user.acceptFriends.length}
+  .col
+    a.dashboard-card(href="/rooms-chat")
+      i.fas.fa-comments
+      span Phòng chat
